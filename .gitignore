@@ -1,3 +1,5 @@
 *.class
-out/*.class
+out/*
 .idea
+src/EmptyHeapException.java
+src/PriorityQueue.java
