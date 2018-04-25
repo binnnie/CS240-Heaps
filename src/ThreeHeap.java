@@ -1,9 +1,7 @@
 import java.util.*;
 
 public class ThreeHeap implements PriorityQueue {
-   
    private double[] data;
-   
    private int size;
    
    public ThreeHeap() {
@@ -31,9 +29,9 @@ public class ThreeHeap implements PriorityQueue {
       if (size == data.length - 1) {
          resize();
       }
-      size++;     
       int hole = percolateUp(size + 1, x);
       data[hole] = x;
+      size++;
    }
    private void resize() {
       data = Arrays.copyOf(data, data.length * 2);
@@ -61,10 +59,10 @@ public class ThreeHeap implements PriorityQueue {
    
    private int percolateDown(int hole, double x) {
       int target = findTarget(hole * 3 - 1, hole * 3, hole * 3 + 1);
-      while (hole * 3 - 1 <= size && x > data[target]) {
+      while (target <= size && x > data[target]) {
          data[hole] = data[target];
          hole = target;
-         target = findTarget(hole * 3 - 1, hole * 3, hole * 3 + 1);         
+         target = findTarget(hole * 3 - 1, hole * 3, hole * 3 + 1);
       }
       return hole;
    }
@@ -91,8 +89,8 @@ public class ThreeHeap implements PriorityQueue {
    
    public void buildQueue (List<Double> list) {
       double[] hold = new double[list.size() * 2];
-      for (int i = 1 ; i <= list.size() ; i++) {
-         hold[i] = list.get(i);
+      for (int i = 0 ; i < list.size() ; i++) {
+         hold[i + 1] = list.get(i);
       }
       data = hold;
       for (int i = list.size() / 3 + 1 ; i > 0 ; i--) {
