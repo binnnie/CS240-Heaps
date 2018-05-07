@@ -1,5 +1,13 @@
 import java.util.ArrayList;
 
+/*
+ * Brandon Dixon, TJ Dillon, Saywere Hendricks
+ * MyClient.java
+ * 05/09/2018
+ *
+ * A runnable class for testing the functionality of the ThreeHeap object.
+ * */
+
 public class MyClient{
    public static void main(String[] args) {
       ThreeHeap testOne = new ThreeHeap();
